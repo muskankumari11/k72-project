@@ -57,11 +57,10 @@ const Agence = () => {
 
   return (
     <div className='parent'>
-      <div id='page1' className='py-1 relative'>
+      <div id='page1' className='py-1 relative pt-28 sm:pt-32 lg:pt-0'>
         <div
           ref={imageDivRef}
-          className='absolute overflow-hidden lg:h-[20vw] h-[30vw] lg:rounded-3xl rounded-xl lg:w-[15vw] w-[25vw] lg:left-[30vw] left-[30vw]'
-          style={{ top: '-15vw' }}
+          className='absolute overflow-hidden lg:h-[20vw] h-[30vw] lg:rounded-3xl rounded-xl lg:w-[15vw] w-[25vw] lg:left-[30vw] left-[30vw] top-[-38vw] lg:top-[-15vw]'
         >
           <img
             ref={imageRef}
@@ -72,14 +71,14 @@ const Agence = () => {
         </div>
 
         <div className='relative font-[font2]'>
-          <div className='lg:mt-[30vh] mt-[5vh]'>
+          <div className='lg:mt-[55vh] mt-[18vh]'>
             <h1 className='text-[20vw] text-center uppercase leading-[18vw]'>
               Soixan7e <br />
               Douze
             </h1>
           </div>
 
-          <div className='lg:pl-[40%] lg:mt-20 mt-4 p-3 '>
+          <div className='lg:pl-[40%] lg:mt-44 mt-10 p-3 '>
             <p className='lg:text-6xl text-xl leading-tight'>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               Notre curiosité nourrit notre créativité. On reste humbles et on dit non aux gros egos, même le vôtre. Une marque est vivante. Elle a des valeurs, une personnalité, une histoire. Si on oublie ça, on peut faire de bons chiffres à court terme, mais on la tue à long terme. C'est pour ça qu'on s'engage à donner de la perspective, pour bâtir des marques influentes.

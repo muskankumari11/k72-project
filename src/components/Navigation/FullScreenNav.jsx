@@ -1,5 +1,3 @@
-
-
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import React, { useContext, useEffect, useRef, useState } from 'react'
@@ -10,10 +8,6 @@ const FullScreenNav = () => {
     const fullScreenRef = useRef(null)
 
     const [navOpen, setNavOpen] = useContext(NavbarContext)
-
-
-
-
 
     function gsapAnimation() {
         const tl = gsap.timeline()
@@ -61,20 +55,28 @@ const FullScreenNav = () => {
         })
     }
 
-
     useGSAP(function () {
         if (navOpen) {
-
             gsapAnimation()
         } else {
-
             gsapAnimationReverse()
+        }
+    }, [navOpen])
 
+    useEffect(() => {
+        if (navOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
+        }
+
+        return () => {
+            document.body.style.overflow = 'auto'
         }
     }, [navOpen])
 
     return (
-        <div ref={fullScreenRef} id='fullscreennav' className='fullscreennav hidden text-white overflow-hidden h-screen w-full z-50 absolute'>
+        <div ref={fullScreenRef} id='fullscreennav' className='fullscreennav hidden text-white overflow-hidden h-screen w-full z-50 fixed top-0 left-0 bg-black'>
             <div className='h-screen w-full fixed'>
                 <div className='h-full w-full flex'>
                     <div className='stairing h-full w-1/5 bg-black'></div>
@@ -84,7 +86,7 @@ const FullScreenNav = () => {
                     <div className='stairing h-full w-1/5 bg-black'></div>
                 </div>
             </div>
-            <div ref={fullNavLinksRef} className='relative'>
+            <div ref={fullNavLinksRef} className='relative overflow-hidden h-screen'>
                 <div className="navlink flex w-full justify-between lg:p-5 p-2 items-start">
                     <div className=''>
                         <div className='lg:w-36 w-24'>
@@ -98,11 +100,10 @@ const FullScreenNav = () => {
                     }} className='lg:h-32 h-20 w-20 lg:w-32 relative cursor-pointer'>
                         <div className='lg:h-44 h-28 lg:w-1 w-0.5 -rotate-45 origin-top absolute bg-[#D3FD50]'></div>
                         <div className='lg:h-44 h-28 lg:w-1 w-0.5 right-0 rotate-45 origin-top absolute bg-[#D3FD50]'></div>
-
                     </div>
                 </div>
-                <div className=' py-36'>
-                    <div className='link origin-top relative  border-white'>
+                <div className='pt-16 lg:pt-0 lg:-mt-10 pb-36'>
+                    <div className='link origin-top relative overflow-hidden border-white'>
                         <h1 className='font-[font2] text-5xl lg:text-[8vw] text-center lg:leading-[0.8] lg:pt-10 pt-3 uppercase'>Projets</h1>
                         <div className='moveLink absolute text-black flex top-0 bg-[#D3FD50]'>
                             <div className='moveX flex items-center'>
@@ -118,9 +119,8 @@ const FullScreenNav = () => {
                                 <img className='lg:h-36 h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src="https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290-640x290.jpg" alt="" />
                             </div>
                         </div>
-
                     </div>
-                    <div className='link origin-top relative  border-white'>
+                    <div className='link origin-top relative overflow-hidden border-white'>
                         <h1 className='font-[font2] text-5xl lg:text-[8vw] text-center lg:leading-[0.8] lg:pt-10 pt-3 uppercase'>Agence</h1>
                         <div className='moveLink absolute text-black flex top-0 bg-[#D3FD50]'>
                             <div className='moveX flex items-center'>
@@ -136,9 +136,8 @@ const FullScreenNav = () => {
                                 <img className='lg:h-36 h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src="https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290-640x290.jpg" alt="" />
                             </div>
                         </div>
-
                     </div>
-                    <div className='link origin-top relative  border-white'>
+                    <div className='link origin-top relative overflow-hidden border-white'>
                         <h1 className='font-[font2] text-5xl lg:text-[8vw] text-center lg:leading-[0.8] lg:pt-10 pt-3 uppercase'>Contact</h1>
                         <div className='moveLink absolute text-black flex top-0 bg-[#D3FD50]'>
                             <div className='moveX flex items-center'>
@@ -154,9 +153,8 @@ const FullScreenNav = () => {
                                 <img className='lg:h-36 h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src="https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290-640x290.jpg" alt="" />
                             </div>
                         </div>
-
                     </div>
-                    <div className='link origin-top relative  border-white'>
+                    <div className='link origin-top relative overflow-hidden border-white'>
                         <h1 className='font-[font2] text-5xl lg:text-[8vw] text-center lg:leading-[0.8] lg:pt-10 pt-3 uppercase'>Blogs</h1>
                         <div className='moveLink absolute text-black flex top-0 bg-[#D3FD50]'>
                             <div className='moveX flex items-center'>
@@ -172,7 +170,6 @@ const FullScreenNav = () => {
                                 <img className='lg:h-36 h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src="https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290-640x290.jpg" alt="" />
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
